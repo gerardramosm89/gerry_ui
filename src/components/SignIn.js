@@ -5,7 +5,8 @@ export default class SignIn extends Component {
     super(props);
     this.state = { 
       email: '',
-      password: '' 
+      password: '',
+      error: null
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,15 +15,35 @@ export default class SignIn extends Component {
     const target = e.target;
     const name = target.name;
     const value = target.value;
+    this.setState({
+      error: null
+    });
+    console.log(this.state.error);
     this.setState({ 
       [name]: value
     }, () => {
       // console.log(this.state.email);
     });
   }
+  renderEmail() {
+    return (
+      <div>
+        {this.state.error}
+      </div>
+    );
+  }
   handleSubmit(e) {
     e.preventDefault();
     console.log("The current state is: ", this.state);
+    if (this.state.email === '' || this.state.password === '') {
+      this.setState({
+        error: "Email and password required"
+      })
+    } else {
+      console.log("Email and password received");
+      let query = { email: this.state.email, password: this.state.password };
+      console.log('The query is: ', query);
+    }
   }
 
   render() {
@@ -30,6 +51,7 @@ export default class SignIn extends Component {
       <div>
         <div className="container">
           <div className="col-6 offset-3">
+            {this.renderEmail()}
           <form onSubmit={this.handleSubmit} className="form-signin">
             <h2 className="form-signin-heading">Please sign in</h2>
             <label htmlFor="inputEmail" className="sr-only">Email address</label>
