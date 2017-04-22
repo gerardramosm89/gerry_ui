@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
+
 
 export default class SignIn extends Component {
   constructor(props) {
@@ -10,6 +13,7 @@ export default class SignIn extends Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.API_URL = 'http://localhost:3050/api/userauth';
   }
   handleInputChange(e) {
     const target = e.target;
@@ -18,7 +22,6 @@ export default class SignIn extends Component {
     this.setState({
       error: null
     });
-    console.log(this.state.error);
     this.setState({ 
       [name]: value
     }, () => {
@@ -41,8 +44,11 @@ export default class SignIn extends Component {
       })
     } else {
       console.log("Email and password received");
-      let query = { email: this.state.email, password: this.state.password };
+      let query = { username: this.state.email, password: this.state.password };
       console.log('The query is: ', query);
+      axios.post('http://localhost:3050/api/userauth', query)
+        .then((response) => console.log(response))
+        .catch((err) => console.log("error: ", err));
     }
   }
 
