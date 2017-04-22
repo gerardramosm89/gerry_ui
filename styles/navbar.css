@@ -1,3 +1,4 @@
-h2 {
-  color: red;
+.navbar {
+  position: static;
+  margin-bottom:50px;
 }
