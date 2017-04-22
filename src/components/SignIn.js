@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
 
 export default class SignIn extends Component {
-  componentDidMount() {
-    document.body.querySelector('#inputEmail').focus();
+  constructor(props) {
+    super(props);
+    this.state = { 
+      email: '',
+      password: '' 
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleInputChange(e) {
+    const target = e.target;
+    const name = target.name;
+    const value = target.value;
+    this.setState({ 
+      [name]: value
+    }, () => {
+      // console.log(this.state.email);
+    });
   }
   handleSubmit(e) {
-    e.preventDefault()
-    let email = e.target.inputEmail.value;
-    let password = e.target.inputPassword.value;
-    if (email) {
-      console.log("The email is: ", e.target.inputEmail.value);
-      console.log("The password is: ", e.target.inputPassword.value);    
-      console.log("Form was submitted");
-      e.target.inputEmail.value = '';
-      e.target.inputPassword.value = '';
-      e.target.inputEmail.focus();
-    }
-
-
+    e.preventDefault();
+    console.log("The current state is: ", this.state);
   }
 
   render() {
@@ -28,14 +33,9 @@ export default class SignIn extends Component {
           <form onSubmit={this.handleSubmit} className="form-signin">
             <h2 className="form-signin-heading">Please sign in</h2>
             <label htmlFor="inputEmail" className="sr-only">Email address</label>
-            <input type="text" id="inputEmail" className="form-control" placeholder="Email address" />
+            <input name="email" onChange={this.handleInputChange} type="text" className="form-control" placeholder="Email address" />
             <label htmlFor="inputPassword" className="sr-only">Password</label>
-            <input type="password" id="inputPassword" className="form-control" placeholder="Password" />
-            <div className="checkbox">
-              <label>
-                <input type="checkbox" value="remember-me" /> Remember me
-              </label>
-            </div>
+            <input name="password" onChange={this.handleInputChange} type="password" id="inputPassword" className="form-control" placeholder="Password" />
             <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
           </form>
           </div>
