@@ -58,14 +58,14 @@ export default class SignIn extends Component {
         <div className="container">
           <div className="col-6 offset-3">
             {this.renderEmail()}
-          <form onSubmit={this.handleSubmit} className="form-signin">
-            <h2 className="form-signin-heading">Please sign in</h2>
-            <label htmlFor="inputEmail" className="sr-only">Email address</label>
-            <input name="email" onChange={this.handleInputChange} type="text" className="form-control" placeholder="Email address" />
-            <label htmlFor="inputPassword" className="sr-only">Password</label>
-            <input name="password" onChange={this.handleInputChange} type="password" id="inputPassword" className="form-control" placeholder="Password" />
-            <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-          </form>
+            <form onSubmit={this.handleSubmit} className="form-signin">
+              <h2 className="form-signin-heading">Please sign in</h2>
+              <label htmlFor="inputEmail" className="sr-only">Email address</label>
+              <input name="email" onChange={this.handleInputChange} type="text" className="form-control" placeholder="Email address" />
+              <label htmlFor="inputPassword" className="sr-only">Password</label>
+              <input name="password" onChange={this.handleInputChange} type="password" id="inputPassword" className="form-control" placeholder="Password" />
+              <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
           </div>
 
         </div>
