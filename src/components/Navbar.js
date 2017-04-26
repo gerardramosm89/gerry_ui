@@ -7,7 +7,8 @@ import {
 import Home from './Home';
 import SignIn from './SignIn';
 import About from './About';
-
+import RouteParams from './RouteParams';
+import Testing from './Testing';
 const Topics = ({ match }) => (
   <div>
     <h2>Topics</h2>
@@ -83,6 +84,11 @@ const BSTemplate = ({ match }) => (
   </div>
 )
 
+const Child = ({ match }) => (
+  <div>
+    <h3>Path you are currently on is: {match.params.id}</h3>
+  </div>
+);
 const Navbar = () => (
   <Router>
     <div>
@@ -96,6 +102,8 @@ const Navbar = () => (
       <Route exact path="/" component={Home}/>
       <Route path="/about" component={About}/>
       <Route path="/signin" component={SignIn}/>
+      <Route path="/:id" component={RouteParams} />
+      <Route path="/testing" component={Testing} />
     </div>
   </Router>
 )

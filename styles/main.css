@@ -10,7 +10,7 @@ body {
 .bar-fill {
   height:3vh;
   background-color: red;
-  transition: 1.5s ease all;
+  transition: .3s ease all;
 }
 
 @import 'navbar.css';
