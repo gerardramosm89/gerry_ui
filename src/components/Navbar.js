@@ -2,7 +2,8 @@ import React from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom';
 import Home from './Home';
 import SignIn from './SignIn';
@@ -93,17 +94,22 @@ const Navbar = () => (
   <Router>
     <div>
       <BSTemplate />
-      {/*<ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/signin">Sign In</Link></li>
-      </ul>*/}
-      {/*<hr/>*/}
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-      <Route path="/signin" component={SignIn}/>
-      <Route path="/:id" component={RouteParams} />
-      <Route path="/testing" component={Testing} />
+      <Switch>
+
+        {/*<ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/signin">Sign In</Link></li>
+        </ul>*/}
+        {/*<hr/>*/}
+        <Route exact path="/" component={Home}/>
+        <Route path="/about" component={About}/>
+        <Route path="/signin" component={SignIn}/>
+        <Route path="/testing" component={Testing} />
+        <Route path="/testing/inline" render={() => <div>from inline</div>} />
+        <Route render={() => <h1>Domain not found</h1>} />
+      </Switch>
+
     </div>
   </Router>
 )

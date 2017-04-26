@@ -19,15 +19,15 @@ class Testing extends Component {
           <Link to="/testing/Drinks">Drinks</Link>
           <Link to="/testing/papers">papers</Link>
           <Link to="/testing/computers">computers</Link>
-          <Route path={'/testing/:topicId'} render={({match}) => {
-            console.log("the match is: ", match);
-            return (
-              <div>
-                <h2>test</h2>
-                <p>{match.params.topicId}</p>
-              </div>
-            );
-          }}/>
+        <Route path={'/testing/:topicId'} render={({match}) => {
+          console.log("the match is: ", match);
+          return (
+            <div>
+              <h2>test</h2>
+              <p>{match.params.topicId}</p>
+            </div>
+          );
+        }}/>
           <Route exact path={this.props.match.url} render={() => (
             <h3>Please select a topic.</h3>
           )}/>
