@@ -2,4 +2,15 @@ body {
   background-color: #E7EDF0;
 }
 
+/* Percent Bar */
+.barParent {
+  width: 50vw;
+  height:3vh;
+}
+.bar-fill {
+  height:3vh;
+  background-color: red;
+  transition: 1.5s ease all;
+}
+
 @import 'navbar.css';

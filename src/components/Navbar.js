@@ -68,7 +68,7 @@ const BSTemplate = ({ match }) => (
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
             <div className="dropdown-menu" aria-labelledby="dropdown01">
-              <a className="dropdown-item" href="#">Action</a>
+              <Link className="dropdown-item" to="/signin">Sign In</Link>
               <a className="dropdown-item" href="#">Another action</a>
               <a className="dropdown-item" href="#">Something else here</a>
             </div>
