@@ -18,6 +18,7 @@
     "axios": "^0.16.1",
     "body-parser": "^1.17.1",
     "css-loader": "^0.28.0",
+    "draft-js": "^0.10.0",
     "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "http": "0.0.0",
