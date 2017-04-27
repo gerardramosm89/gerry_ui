@@ -10,6 +10,7 @@ import SignIn from './SignIn';
 import About from './About';
 import RouteParams from './RouteParams';
 import Testing from './Testing';
+import SoloPage from './SoloPage';
 const Topics = ({ match }) => (
   <div>
     <h2>Topics</h2>
@@ -67,6 +68,10 @@ const BSTemplate = ({ match }) => (
             {/*<a className="nav-link disabled" href="#">Disabled</a>*/}
             <Link className="nav-link" to="/signin">Sign In</Link>
           </li>
+          <li className="nav-item">
+            {/*<a className="nav-link disabled" href="#">Disabled</a>*/}
+            <Link className="nav-link" to="/testing">Testing Routes</Link>
+          </li>
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
             <div className="dropdown-menu" aria-labelledby="dropdown01">
@@ -107,6 +112,7 @@ const Navbar = () => (
         <Route path="/signin" component={SignIn}/>
         <Route path="/testing" component={Testing} />
         <Route path="/testing/inline" render={() => <div>from inline</div>} />
+        <Route path="/blogs/solopage/:id" component={SoloPage} />        
         <Route render={() => <h1>Domain not found</h1>} />
       </Switch>
 
