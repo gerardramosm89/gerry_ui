@@ -12,5 +12,11 @@ body {
   background-color: red;
   transition: .3s ease all;
 }
-
+.editor-field {
+  background-color: white;
+}
+.editor {
+ border: 1px solid grey;
+ padding: 6px;
+}
 @import 'navbar.css';

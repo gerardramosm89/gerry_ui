@@ -8,7 +8,9 @@ export default class Home extends Component {
         Home Component
         <img src="../../img/avatar3.PNG" />
         <p>nice the image loads</p>
-        <MyEditor />
+        <div className="col-4 editor-field">
+          <MyEditor />
+        </div>
       </div>
     );
   }
