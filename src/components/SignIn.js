@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-
-
 export default class SignIn extends Component {
   constructor(props) {
     super(props);
@@ -37,17 +35,17 @@ export default class SignIn extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    console.log("The current state is: ", this.state);
     if (this.state.email === '' || this.state.password === '') {
       this.setState({
         error: "Email and password required"
       })
     } else {
-      console.log("Email and password received");
       let query = { username: this.state.email, password: this.state.password };
-      console.log('The query is: ', query);
       axios.post('http://localhost:3050/api/userauth', query)
-        .then((response) => console.log(response))
+        .then((response) => {
+          this.props.history.push('/protected');
+          return console.log(response);
+        })
         .catch((err) => console.log("error: ", err));
     }
   }

@@ -6,38 +6,31 @@ import {
   Link
 } from 'react-router-dom';
 import axios from 'axios';
-class SoloPage extends Component {
+class BlogsPage extends Component {
   constructor(props) {
     super(props);
-    // console.log("Props from Solo Child is: ", this.props);
+    console.log("Props from Solo Child is: ", this.props);
     this.state = {
-      post: {}
+      posts: []
     }
   }
-  componentWillMount() {
-    axios.get(`http://reduxblog.herokuapp.com/api/posts/${this.props.match.params.id}`).then(data => {
-      console.log(data);
+  componentDidMount() {
+    axios.get('http://reduxblog.herokuapp.com/api/posts').then(data => {
+      console.log(data.data);
       this.setState({
-        post: data.data
-      }, () => {
-        console.log(this.state.post);
-      });
+        posts: data.data
+      })
     });
   }
   renderPosts() {
-    return (
-      <div>
-        <p>Title is: {this.state.post.title}</p>
-        <p>Content is: {this.state.post.content}</p>
-      </div>
-    );
-    /*return this.state.posts.map(post => {
+    return this.state.posts.map(post => {
       return (
       <div key={post.id}>
         <h1>Title: {post.title}</h1>
+        <Link to={`/blogs/${post.id}`}>{post.title}</Link>
         <h5>Content: {post.content}</h5>
       </div>);
-    });*/
+    });
   }
   render() {
     return (
@@ -50,4 +43,4 @@ class SoloPage extends Component {
   }
 }
 
-export default SoloPage;
+export default BlogsPage;
